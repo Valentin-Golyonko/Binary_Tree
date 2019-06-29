@@ -414,7 +414,7 @@ class Gui:
         def add_root(event):
             """init Root and Tree"""
             get_text = en_root.get().split()
-            if len(get_text) > 0:
+            if get_text:
                 log_info("\tgui_add_root: %s" % get_text)
                 try:
                     self.__root_student_gui__ = Student(get_text[0], float(get_text[1]))
@@ -432,7 +432,7 @@ class Gui:
         def fun_add(event):
             """tree.add(Student('Egor', 6.5))"""
             get_text = en_search.get().split()
-            if len(get_text) > 0:
+            if get_text:
                 log_info("\tgui_fun_add: %s" % get_text)
                 try:
                     self.__root_tree_gui__.add(Student(get_text[0], float(get_text[1])))
@@ -450,13 +450,13 @@ class Gui:
         def fun_dell(event):
             """tree.dell(4, root_student)"""
             get_text = en_search.get()
-            if len(get_text) > 0:
+            if get_text:
                 log_info("\tgui_fun_dell: %s" % get_text)
                 try:
                     self.__root_tree_gui__.dell(float(get_text), self.__root_student_gui__)
 
                     arr_d = self.__root_tree_gui__.arr_dell
-                    if len(arr_d) > 0:
+                    if arr_d:
 
                         lb_output["text"] = "Student %s deleted" % arr_d
                         log_warning("\tdell: %s" % arr_d)
@@ -473,13 +473,13 @@ class Gui:
         def fun_dell_all(event):
             """tree.dell(3, root_student, True)"""
             get_text = en_search.get()
-            if len(get_text) > 0:
+            if get_text:
                 log_info("\tgui_fun_dell: %s" % get_text)
                 try:
                     self.__root_tree_gui__.dell(float(get_text), self.__root_student_gui__, True)
 
                     arr_d = self.__root_tree_gui__.arr_dell
-                    if len(arr_d) > 0:
+                    if arr_d:
 
                         lb_output["text"] = "Students %s with score %s deleted" % (arr_d, get_text)
                         log_info("\tdell_all: %s" % arr_d)
@@ -496,12 +496,12 @@ class Gui:
         def fun_search(event):
             """tree.find(7, root_student)"""
             get_text = en_search.get()
-            if len(get_text) > 0:
+            if get_text:
                 log_info("\tgui_fun_search: %s" % get_text)
                 try:
                     f_n, f_s = self.__root_tree_gui__.find(float(get_text), self.__root_student_gui__)
 
-                    if len(f_n) > 0:
+                    if f_n:
                         lb_output["text"] = "Student '%s' found, score = %s:" % (f_n, f_s)
                         log_info("\t%s has %s" % (f_n, f_s))
 
@@ -517,13 +517,13 @@ class Gui:
         def fun_search_all(event):
             """tree.find_all(6.4, root_student)"""
             get_text = en_search.get()
-            if len(get_text) > 0:
+            if get_text:
                 log_info("\tgui_fun_search: %s" % get_text)
                 try:
                     self.__root_tree_gui__.find_all(float(get_text), self.__root_student_gui__)
 
                     arr_f = self.__root_tree_gui__.arr_find_all
-                    if len(arr_f) > 0:
+                    if arr_f:
                         lb_output["text"] = "Students %s with score %s found:" % (arr_f, get_text)
                         log_info("\t%s has: %s" % (get_text, self.__root_tree_gui__.arr_find_all))
 
