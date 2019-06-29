@@ -17,5 +17,9 @@ Additionally:
 # Video
 <p><a href="https://youtu.be/jmA-vI9McfE">Binary Tree Python<a></p>
 
+# Img
+GUI:<p><img src="https://github.com/Valentin-Golyonko/Binary_Tree/blob/master/img/img_btp_gui.png" alt="web_view"></p>
+Graph:<p><img src="https://github.com/Valentin-Golyonko/Binary_Tree/blob/master/img/img_btp_plot.png" alt="web_view"></p>
+
 # BUG:
 - points on the graph intersect
