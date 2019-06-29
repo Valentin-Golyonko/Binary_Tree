@@ -23,3 +23,4 @@ Graph:<p><img src="https://github.com/Valentin-Golyonko/Binary_Tree/blob/master/
 
 # BUG:
 - points on the graph intersect
+<p>ex:<p><img src="https://github.com/Valentin-Golyonko/Binary_Tree/blob/master/img/img_btp_bug.png" alt="web_view"></p></p>
