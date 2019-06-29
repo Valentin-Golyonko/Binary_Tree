@@ -15,7 +15,7 @@ Additionally:
 - any kind of visualisation
 
 # Video
-<p><a href="https://youtu.be/jmA-vI9McfE">RPi Feed (v. 0.1.19060820)<a></p>
+<p><a href="https://youtu.be/jmA-vI9McfE">Binary Tree Python<a></p>
 
 # BUG:
 - points on the graph intersect
