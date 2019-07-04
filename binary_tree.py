@@ -1,8 +1,5 @@
 import tkinter as tk
 
-import matplotlib.pyplot as plt
-import numpy as np
-
 from log.Log_Color import *
 
 
@@ -53,6 +50,7 @@ class Tree:
         self.__names__ = []  # nodes names
         self.__root_saved__ = 0  # remember tee root
         self.__root_flag__ = ""  # for each student set branch direction (left/right) from main root
+        self.__empty_leaves__ = []
 
     def add(self, new_student):
         """
@@ -249,7 +247,7 @@ class Tree:
         :return: No! cause 2 recursion
         """
         self.__names__.append([_root.name, _root.score_p, self.__x__, self.__y__, self.__p__, self.__root_flag__])
-        log_info("\t%s %s" % (_root.name, self.__names__[-1]))
+        # log_info("%s" % self.__names__[-1])
 
         if _root.right and _root.right is not None:
             if _root == self.__root_saved__:
@@ -281,7 +279,8 @@ class Tree:
         :return: No! cause 2 recursion
         """
         if not _root.left and not _root.right:
-            log_info("\tprint_empty_leaves: %s, %s" % (_root.name, _root.score_p))
+            self.__empty_leaves__.append([_root.name, _root.score_p])
+            # log_info("\tprint_empty_leaves: %s, %s" % (_root.name, _root.score_p))
         if _root.right:
             self.print_empty_leaves(_root.right)  # recursion
         if _root.left:
@@ -294,6 +293,8 @@ class Tree:
         BUG 🚩: points on the graph intersect
         """
         log_verbose("visual()")
+        import matplotlib.pyplot as plt
+        import numpy as np
 
         an = np.linspace(0, 2 * np.pi, 100)
         fig, axs = plt.subplots()
@@ -350,6 +351,7 @@ class Tree:
         self.arr_find_all.clear()
         self.__root_saved__ = 0
         self.__root_flag__ = ""
+        self.__empty_leaves__.clear()
 
 
 class Gui:
@@ -554,6 +556,8 @@ class Gui:
         log_verbose("__after_action__()")
         self.__root_tree_gui__.__root_saved__ = self.__root_student_gui__
         self.__root_tree_gui__.print_tree(self.__root_student_gui__)
+        for i in self.__root_tree_gui__.__names__:
+            log_info("\tprint_tree: %s" % i)
         self.__root_tree_gui__.visual()
 
 
@@ -623,8 +627,12 @@ def main():
 
     tree.__root_saved__ = root_student
     tree.print_tree(root_student)
+    for i in tree.__names__:
+        log_info("\tprint_tree: %s" % i)
 
     tree.print_empty_leaves(root_student)
+    log_info("__empty_leaves__: %s" % tree.__empty_leaves__)
+    tree.__empty_leaves__.clear()
 
     return root_student, tree
 
